@@ -1,0 +1,32 @@
+<html>
+  <h1>
+    BLOG POST
+    <h1>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Pages</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for blog in object_list %}
+          <tr>
+            <td>{{blog.name}}</td>
+            <td>{{blog.content}}</td>
+            <td>{{blog.pages}}</td>
+            <td><a href="{% url 'post_view' blog.id%}">View</td>
+            <td><a href="{% url 'post_edit' blog.id%}">Edit</td>
+            <td><a href="{% url 'post_delete' blog.id%}">Delete</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="{% url 'post_create' %}">Create</a>
+    </h1>
+  </h1>
+</html>
